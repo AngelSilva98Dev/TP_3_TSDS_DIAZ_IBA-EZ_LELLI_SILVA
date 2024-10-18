@@ -48,8 +48,8 @@ Entorno de desarrollo para C# (Visual Studio, Visual Studio Code, etc.)
 👥 Contribuyentes
 Este proyecto fue desarrollado por los estudiantes de la Tecnicatura Superior en Desarrollo de Software:
 
-Díaz Francisco 
- - Ibañez Pablo 
- - Lelli Fabrizio
- - Silva Ángel
+- Díaz Francisco
+- Ibañez Pablo 
+- Lelli Fabrizio
+- Silva Ángel
    
