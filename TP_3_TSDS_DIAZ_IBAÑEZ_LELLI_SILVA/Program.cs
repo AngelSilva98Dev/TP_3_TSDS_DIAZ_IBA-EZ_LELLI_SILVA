@@ -19,14 +19,30 @@ class program
 
     static void SeleccionarVuelo()
     {
-        Console.WriteLine("seleccione un vuelo");
+        bool vueloValido = false;
 
-        for (int i = 0; i < vuelos.Length; i++)
+        while (!vueloValido)
         {
-            Console.WriteLine("Vuelo N° " + i);
+            Console.WriteLine("Seleccione un vuelo:");
+
+            for (int i = 0; i < vuelos.Length; i++)
+            {
+                Console.WriteLine("Vuelo N° " + i);
+            }
+
+            Console.Write("Ingrese el N° del vuelo: ");
+            int numeroVuelo = int.Parse(Console.ReadLine());
+
+            if (numeroVuelo >= 0 && numeroVuelo < vuelos.Length)
+            {
+                vueloSeleccionado = numeroVuelo;
+                vueloValido = true;
+            }
+            else
+            {
+                Console.WriteLine("Número de vuelo inválido. Intente nuevamente.");
+            }
         }
-        Console.Write("Ingrese el N° del vuelo: ");
-        vueloSeleccionado = int.Parse(Console.ReadLine());
     }
     static void ReservarAsiento()
     {
@@ -47,19 +63,27 @@ class program
             }
             Console.Write("\nIngrese el asiento: ");
             int respuesta = int.Parse(Console.ReadLine());
-
-            if (vuelos[vueloSeleccionado][respuesta] == 0)
+            
+            if (respuesta >= 0 && respuesta < 60)
             {
-                vuelos[vueloSeleccionado][respuesta] = 1;
-                procesoCompletado = true;
-                Console.WriteLine("Asiento reservado con exito");
+                if (vuelos[vueloSeleccionado][respuesta] == 0)
+                {
+                    vuelos[vueloSeleccionado][respuesta] = 1;
+                    procesoCompletado = true;
+                    Console.WriteLine("Asiento reservado con éxito");
+                }
+                else
+                {
+                    Console.WriteLine("Asiento ocupado, seleccione otro");
+                }
             }
             else
             {
-                Console.WriteLine("Asiento ocupado, seleccione otro");
+                Console.WriteLine("Número de asiento inválido. Intente nuevamente.");
             }
-
         }
+
+
     }
 
     static void CancelarReserva()
